@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        color: rgb(45, 102, 207);
+        font-size: 34px;
+        margin: 20px auto;
+      }
+
+      h2 {
+        font-size: 34px;
+        margin: 20px auto;
+        font-weight: normal;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 40px auto;
+      }
+
+      li {
+        display: block;
+        margin: 0 auto;
+        padding: 30px;
+        font-size: 18px;
+        max-width: 300px;
+        transition: all 200ms ease-in-out;
+      }
+
+      li:hover {
+        background-color: wheat;
+      }
+
+      .value {
+        color: rgb(77, 77, 77);
+        font-family: monospace;
+      }
+
+      .second_value {
+        font-weight: bold;
+      }
+
+      .next_day {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      button {
+        color: white;
+        background-color: rgb(45, 102, 207);
+        border: none;
+        font-size: 16px;
+        padding: 18px 30px;
+        border-radius: 30px;
+        border: 1px solid rgb(45, 102, 207);
+        transition: all 200ms ease-in-out;
+      }
+
+      button:hover {
+        color: rgb(45, 102, 207);
+        border: 1px solid white;
+        background-color: white;
+        border: 1px solid rgb(45, 102, 207);
+      }
+
+      p {
+        color: rgb(77, 77, 77);
+        font-size: 16px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🌤 <br />Currently 21° in Tokyo</h1>
+    <h2>13° /<span class="second_value"> 23°</span></h2>
+    <ul>
+      <li>
+        <h3 class="next_day">🌧Tomorrow</h3>
+        <div class="value">10° / <span class="second_value"> 22°</span></div>
+      </li>
+      <li>
+        <h3 class="next_day">🌥Saturday</h3>
+        <div class="value">15° / <span class="second_value"> 17°</span></div>
+      </li>
+      <li>
+        <h3 class="next_day">☀️Sunday</h3>
+        <div class="value">25° / <span class="second_value"> 28°</span></div>
+      </li>
+    </ul>
+    <button name="change_city">Change city</button>
+    <p>Codded by Boyko Elena</p>
+
+    <script>
+      function changeHeading() {
+        let city = prompt("What city do you live in?");
+        let temperature = prompt("What temperature is it?");
+        let heading = document.querySelector("h1");
+        if (temperature >= 0) {
+          heading.innerHTML = `🌤 <br />Currently ${temperature}° in ${city}`;
+        } else {
+          heading.innerHTML = `🥶 <br />Currently ${temperature}° in ${city}`;
+        }
+      }
+
+      let buttonChangecity = document.querySelector("button");
+      buttonChangecity.addEventListener("click", changeHeading);
+    </script>
+  </body>
+</html>
